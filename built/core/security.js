@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.tinyToken = exports.generateECKeyPair = exports.humanFriendlyKey = exports.sha512 = void 0;
 const tslib_1 = require("tslib");
-const exception = tslib_1.__importStar(require("./_diagnostics/exception"));
-const stringHelper = tslib_1.__importStar(require("./_util/stringhelper"));
-const numHelper = tslib_1.__importStar(require("./_util/numhelper"));
-const _ = tslib_1.__importStar(require("lodash"));
+const exception = (0, tslib_1.__importStar)(require("./_diagnostics/exception"));
+const stringHelper = (0, tslib_1.__importStar)(require("./_util/stringhelper"));
+const numHelper = (0, tslib_1.__importStar)(require("./_util/numhelper"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
 const bb = require("bluebird");
 const ms = require("ms");
 /** cross-platform implementation of the nodejs module: http://nodejs.org/api/crypto.html
@@ -107,6 +108,7 @@ function humanFriendlyKey(digits, digitGroupings, userInputToParse, groupingSepe
         i: "y",
         l: "x",
         u: "w",
+        //[ key: "o" | "i" | "l" | "u"]: st
     };
     for (let i = 0; i < initialKey.length; i++) {
         if (digitGroupings !== 0 && i % digitGroupings === 0 && i !== 0) {
@@ -162,7 +164,7 @@ async function generateECKeyPair(/** defaults to ```P-256``` */ namedCurve = "P-
                 type: 'pkcs8',
                 format: 'pem',
                 cipher: undefined,
-                passphrase: undefined,
+                passphrase: undefined, //"secret word"
             }
         }, (err, pub, pri) => {
             if (err != null) {
@@ -213,7 +215,7 @@ var tinyToken;
         });
         const deflatedBuffer = await new bb((resolve, reject) => {
             zlib.deflateRaw(payloadStringified, {
-                dictionary: _tinyTokenDeflateDict,
+                dictionary: _tinyTokenDeflateDict, //level: zlib.constants.Z_BEST_COMPRESSION
             }, (_err, result) => {
                 if (_err != null) {
                     reject(_err);

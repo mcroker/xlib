@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.onInitialize = exports.initialize = exports.finishedPromise = exports.isInitializeStarted = void 0;
 const tslib_1 = require("tslib");
 /** allows internal xlib modules to hook the xlib.initialize() method */
-const promise = tslib_1.__importStar(require("../core/promise"));
+const promise = (0, tslib_1.__importStar)(require("../core/promise"));
 var bb = promise.bluebird;
 let isStarted = false;
 function isInitializeStarted() {

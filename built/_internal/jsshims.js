@@ -2,6 +2,7 @@
 // tslint:disable
 /** bootstraps various compatibilities for browsers with old versions of javascript */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.initialize = void 0;
 function initialize() {
     //declare class Buffer { };
     //vNEXT: disable for ts compile purposes

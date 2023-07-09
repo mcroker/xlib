@@ -1,6 +1,6 @@
 "use strict";
 const tslib_1 = require("tslib");
-const diagnostics = tslib_1.__importStar(require("../core/diagnostics"));
+const diagnostics = (0, tslib_1.__importStar)(require("../core/diagnostics"));
 /** root class, includes the following functionality:
 typeName, toString, dispose, assertIsAlive, hashCode */
 class ClassBase {

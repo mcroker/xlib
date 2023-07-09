@@ -1,10 +1,11 @@
 "use strict";
 // tslint:disable
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getQuerystringVariable = exports.getQuerystringVariables = exports.getCookie = exports.getCookies = exports.getDomElement = exports.getDomAttribute = exports.onLoad = exports.isIE = exports.ieVersion = exports.isBrowser = void 0;
 const tslib_1 = require("tslib");
 //import jsHelper = require("../core/jshelper");
 //import ex = require("../core/exception");
-const _ = tslib_1.__importStar(require("lodash"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
 /** DEPRECATED:  use jsHelper.platformType instead.
 determine if running in a browser (if false, most likely running in node.js) */
 exports.isBrowser = typeof window !== "undefined" && typeof phantom === "undefined";
@@ -197,7 +198,7 @@ exports.getCookies = (() => {
     return _getCookies;
 })();
 function getCookie(key, valueIfNullOrEmpty) {
-    var parsedCookies = exports.getCookies();
+    var parsedCookies = (0, exports.getCookies)();
     var result = parsedCookies[key];
     if (valueIfNullOrEmpty != null) {
         if (result == null || result.length === 0) {
@@ -249,7 +250,7 @@ exports.getQuerystringVariables = (() => {
 })();
 function getQuerystringVariable(key, valueIfNullOrEmpty) {
     //from: https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
-    var parsedQuerystrings = exports.getQuerystringVariables();
+    var parsedQuerystrings = (0, exports.getQuerystringVariables)();
     var result = parsedQuerystrings[key];
     if (valueIfNullOrEmpty != null) {
         if (result == null || result.length === 0) {

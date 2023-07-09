@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.initialize = void 0;
 /** allows embeding mocha tests (unit tests) in your code, no-oping them if mocha is not present.
  * usage notes: as long as this module is loaded
  *		(which it is unless your minifer is expecting pure functions)

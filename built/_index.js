@@ -2,8 +2,9 @@
 // tslint:disable-next-line: no-reference
 /// <reference path="./types/xlib-globals/index.d.ts" />
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.numeric = void 0;
 const tslib_1 = require("tslib");
-const jsShims = tslib_1.__importStar(require("./_internal/jsshims"));
+const jsShims = (0, tslib_1.__importStar)(require("./_internal/jsshims"));
 /**
  * ! initialization of xlib:  some "preinit" has to be done as soon as a submodule is imported,
  * ! so it can be properly used by other xlib submodules, so we do that manually inline.
@@ -11,7 +12,7 @@ const jsShims = tslib_1.__importStar(require("./_internal/jsshims"));
  */
 jsShims.initialize();
 //import source_map_support = require( "source-map-support" );
-const source_map_support = tslib_1.__importStar(require("source-map-support"));
+const source_map_support = (0, tslib_1.__importStar)(require("source-map-support"));
 let _initArgs = {};
 if (typeof global !== "undefined" && global.__xlibInitArgs != null) {
     _initArgs = global.__xlibInitArgs;
@@ -32,7 +33,7 @@ if (exports.environment.getGlobal()["_"] == null) {
     exports.environment.getGlobal()["_"] = exports.lodash;
 }
 ///** allows embeding mocha tests (unit tests) in your code, no-oping them if mocha is not present.  */
-const mockMocha = tslib_1.__importStar(require("./_internal/mockmocha"));
+const mockMocha = (0, tslib_1.__importStar)(require("./_internal/mockmocha"));
 mockMocha.initialize();
 if (exports.environment.envLevel < exports.environment.EnvLevel.UAT || exports.environment.logLevel < exports.environment.LogLevel.INFO) {
     //try {
@@ -54,7 +55,7 @@ if (exports.environment.envLevel < exports.environment.EnvLevel.UAT || exports.e
 /** helper types, useful for creating complex typescript types such as mixins */
 exports.types = require("./core/types");
 exports.promise = require("./core/promise");
-const numeric = tslib_1.__importStar(require("./core/numeric"));
+const numeric = (0, tslib_1.__importStar)(require("./core/numeric"));
 exports.numeric = numeric;
 //serialInits.push( mockMocha.initialize );
 /** contains shortcuts to commonly used xlib modules and objects.
@@ -95,7 +96,7 @@ exports.security = require("./core/security");
 /** @deprecated obsolete features of xlib that are made available for backcompat.  May be updated in the future, but likely will be replaced with something else.*/
 exports._obsolete = require("./_obsolete/_index");
 //////////////////////  initialization section
-const init = tslib_1.__importStar(require("./_internal/init"));
+const init = (0, tslib_1.__importStar)(require("./_internal/init"));
 let floatingPromise = init.initialize(_initArgs);
 // setTimeout( () => {
 //     if ( init.isInitializeStarted() !== true ) {

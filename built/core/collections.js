@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ExpiresMap = void 0;
 /** a Map extended to allow keys to expire a given time after setting. */
 class ExpiresMap extends Map {
     constructor(

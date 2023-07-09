@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.retry = exports._BluebirdRetryInternals = exports.CreateExposedPromise = exports.handleFloating = exports.awaitInspect = void 0;
 const tslib_1 = require("tslib");
-const diagnostics = tslib_1.__importStar(require("./diagnostics"));
+const diagnostics = (0, tslib_1.__importStar)(require("./diagnostics"));
 /** https://github.com/petkaantonov/bluebird  Bluebird is a fully featured promise library with focus on innovative features and performance
  * global.Promise is aliased to this.
  */
@@ -9,7 +10,7 @@ exports.bluebird = require("bluebird");
 // import bluebird from "bluebird";
 // export { bluebird };
 //import * as bb from "bluebird";
-const environment = tslib_1.__importStar(require("./environment"));
+const environment = (0, tslib_1.__importStar)(require("./environment"));
 //bluebird.longStackTraces();
 /** binds bluebird as global promise and other various init */
 //export function initialize() {

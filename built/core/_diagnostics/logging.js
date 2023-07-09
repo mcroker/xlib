@@ -1,19 +1,20 @@
 "use strict";
 // tslint:disable:no-console
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Logger = void 0;
 const tslib_1 = require("tslib");
-const environment = tslib_1.__importStar(require("../environment"));
-const stringHelper = tslib_1.__importStar(require("../_util/stringhelper"));
-const serialization = tslib_1.__importStar(require("../serialization"));
-const _ = tslib_1.__importStar(require("lodash"));
+const environment = (0, tslib_1.__importStar)(require("../environment"));
+const stringHelper = (0, tslib_1.__importStar)(require("../_util/stringhelper"));
+const serialization = (0, tslib_1.__importStar)(require("../serialization"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
 //import moment = require( "moment" );
 //import * as luxon from "luxon";
-const diagnostics = tslib_1.__importStar(require("../diagnostics"));
-const exception = tslib_1.__importStar(require("./exception"));
+const diagnostics = (0, tslib_1.__importStar)(require("../diagnostics"));
+const exception = (0, tslib_1.__importStar)(require("./exception"));
 const environment_1 = require("../environment");
-const util = tslib_1.__importStar(require("util"));
+const util = (0, tslib_1.__importStar)(require("util"));
 /** coloring for node console */
-const chalk_1 = tslib_1.__importDefault(require("chalk"));
+const chalk_1 = (0, tslib_1.__importDefault)(require("chalk"));
 //import * as stripAnsi from "strip-ansi";
 const stripAnsi = require("strip-ansi");
 /**
@@ -493,12 +494,12 @@ class Logger {
         return finalArgs;
     }
 }
+exports.Logger = Logger;
 /** storage of  env.logLevelOverrides  for filtering log requests .  added to  by the .initialize() static method and log._overrideLogLevel() method */
 Logger._overrides = [];
 Logger.errorHistoryMaxLength = 200;
 /** storage of errors encountered, for diagnostics reporting */
 Logger.errorHistory = [];
-exports.Logger = Logger;
 /** initialzie upon import */
 function _self_initialize() {
     /** helper for applying env.logLevelOverrides */

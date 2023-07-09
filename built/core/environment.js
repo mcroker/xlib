@@ -1,10 +1,11 @@
 "use strict";
 // tslint:disable:no-console
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.initialize = exports.getEnvironmentVariable = exports.isDebug = exports.isDev = exports.envLevel = exports.EnvLevel = exports.logLevel = exports.LogLevel = exports.getGlobal = exports.osName = exports.OsName = exports.platformType = exports.PlatformType = void 0;
 const tslib_1 = require("tslib");
-const nodeHelper = tslib_1.__importStar(require("../_internal/nodehelper"));
-const browserHelper = tslib_1.__importStar(require("../_internal/browserhelper"));
-const _ = tslib_1.__importStar(require("lodash"));
+const nodeHelper = (0, tslib_1.__importStar)(require("../_internal/nodehelper"));
+const browserHelper = (0, tslib_1.__importStar)(require("../_internal/browserhelper"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
 /** allow splitting up our init work near where it's asssociated variables are.   all are run by the exported .initialize() method */
 const _internalInitWork = [];
 var PlatformType;

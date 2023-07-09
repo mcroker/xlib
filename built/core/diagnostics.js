@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DebugRaceCheck = exports.RaceCheckException = exports.extractStackFrames = exports.computeStackTrace = exports.computeCallFile = exports.computeCallSite = exports.log = exports._logging = void 0;
 const tslib_1 = require("tslib");
-const _ = tslib_1.__importStar(require("lodash"));
-const stringHelper = tslib_1.__importStar(require("./_util/stringhelper"));
-const environment = tslib_1.__importStar(require("./environment"));
-tslib_1.__exportStar(require("./_diagnostics/exception"), exports);
-const exception = tslib_1.__importStar(require("./_diagnostics/exception"));
-const _logging = tslib_1.__importStar(require("./_diagnostics/logging"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
+const stringHelper = (0, tslib_1.__importStar)(require("./_util/stringhelper"));
+const environment = (0, tslib_1.__importStar)(require("./environment"));
+(0, tslib_1.__exportStar)(require("./_diagnostics/exception"), exports);
+const exception = (0, tslib_1.__importStar)(require("./_diagnostics/exception"));
+const _logging = (0, tslib_1.__importStar)(require("./_diagnostics/logging"));
 exports._logging = _logging;
 /** A high quality console logger.  shortcut to diagnostics._logging.log. */
 exports.log = new _logging.Logger();

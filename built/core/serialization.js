@@ -1,13 +1,14 @@
 "use strict";
 ///// <reference path="../../../typings/all.d.ts" />
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.parseFunction = exports.jsonX = exports.dsv = void 0;
 const tslib_1 = require("tslib");
-const reflection = tslib_1.__importStar(require("./reflection"));
-const diagnostics = tslib_1.__importStar(require("./diagnostics"));
-const stringHelper = tslib_1.__importStar(require("./_util/stringhelper"));
-const _ = tslib_1.__importStar(require("lodash"));
-const d3Dsv = tslib_1.__importStar(require("d3-dsv"));
-const time = tslib_1.__importStar(require("./time"));
+const reflection = (0, tslib_1.__importStar)(require("./reflection"));
+const diagnostics = (0, tslib_1.__importStar)(require("./diagnostics"));
+const stringHelper = (0, tslib_1.__importStar)(require("./_util/stringhelper"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
+const d3Dsv = (0, tslib_1.__importStar)(require("d3-dsv"));
+const time = (0, tslib_1.__importStar)(require("./time"));
 /** parse comma or tab seperated values.   see https://www.npmjs.com/package/d3-dsv
     *
     This module provides a parser and formatter for delimiter-separated values, most commonly comma- (CSV) or tab-separated values (TSV). These tabular formats are popular with spreadsheet programs such as Microsoft Excel, and are often more space-efficient than JSON. This implementation is based on RFC 4180.
@@ -30,7 +31,7 @@ console.log(psv.parse("foo|bar\n1|2")); // [{foo: "1", bar: "2"}, columns: ["foo
 ```
   */
 exports.dsv = d3Dsv;
-const json5 = tslib_1.__importStar(require("json5"));
+const json5 = (0, tslib_1.__importStar)(require("json5"));
 /** awesome json parse and stringify capabilities */
 var jsonX;
 (function (jsonX) {

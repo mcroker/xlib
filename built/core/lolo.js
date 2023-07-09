@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Ex = exports.bb = exports.duration = exports.utc = exports.jsonX = exports.log = exports.isDebug = exports.isDev = void 0;
 const tslib_1 = require("tslib");
 // import serialization = require( "./serialization" );
 // import validation = require( "./validation" );
@@ -32,8 +33,8 @@ exports.diag = require("./diagnostics");
 //export var htmlSanitize = _stringHelper.htmlSanitizeEscapedUserInput;
 /** shortcut to xlib.environment */
 var environment_1 = require("./environment");
-exports.isDev = environment_1.isDev;
-exports.isDebug = environment_1.isDebug;
+Object.defineProperty(exports, "isDev", { enumerable: true, get: function () { return environment_1.isDev; } });
+Object.defineProperty(exports, "isDebug", { enumerable: true, get: function () { return environment_1.isDebug; } });
 //export * as tests from "./s"
 /** shortcut to xlib.util.stringhelper */
 exports.str = require("./_util/stringhelper");
@@ -42,10 +43,10 @@ exports.num = require("./_util/numhelper");
 /** shortcut to xlib.util.arrayhelper */
 exports.arr = require("./_util/arrayhelper");
 const diagnostics_1 = require("./diagnostics");
-exports.log = diagnostics_1.log;
+Object.defineProperty(exports, "log", { enumerable: true, get: function () { return diagnostics_1.log; } });
 const serialization_1 = require("./serialization");
-exports.jsonX = serialization_1.jsonX;
-const luxon = tslib_1.__importStar(require("luxon"));
+Object.defineProperty(exports, "jsonX", { enumerable: true, get: function () { return serialization_1.jsonX; } });
+const luxon = (0, tslib_1.__importStar)(require("luxon"));
 /** Time: return time in utc.  pass no arguments to get the current time.
     *
     * Shortcut to ```xlib.time.luxon.DateTime.utc()```

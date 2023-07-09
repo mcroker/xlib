@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.isPrivateIp = exports.UrlValidator = void 0;
 const tslib_1 = require("tslib");
-const numHelper = tslib_1.__importStar(require("./_util/numhelper"));
+const numHelper = (0, tslib_1.__importStar)(require("./_util/numhelper"));
 // /** https://www.npmjs.com/package/validator  this is wrapped by our custom "scrub" framework, so we recommend using that instead for additional error/recovery options  */
 // export import validator = require( "validator" );
 // export import sanitizeHtml = require( "sanitize-html" );
-const diagnostics = tslib_1.__importStar(require("./diagnostics"));
+const diagnostics = (0, tslib_1.__importStar)(require("./diagnostics"));
 const url_1 = require("url");
 const log = diagnostics.log; // var log = new diagnostics.Logger( __filename );
 class UrlValidator {

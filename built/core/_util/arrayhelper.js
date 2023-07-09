@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.maxLen = exports.chunk = exports.removeAfter = exports.removeAt = exports.contains = exports.tryRemoveFirst = exports.removeFirst = exports.append = exports.isArray = exports.copy = void 0;
 function copy(array, startIndex = 0, endIndex) {
     return Array.prototype.slice.call(array, startIndex, endIndex);
 }

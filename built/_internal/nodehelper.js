@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getCommandlineArg = exports.getCommandlineArgs = void 0;
 //import ex = require("../core/exception");
 /** helpers for backend node.js stuff  NODE.JS ONLY!!! */
 //var cachedServerDomain: string;
@@ -73,7 +74,7 @@ exports.getCommandlineArgs = (() => {
  * if you need single value args, access process.argv directly.
  */
 function getCommandlineArg(key, valueIfNullOrEmpty) {
-    let parsedArgs = exports.getCommandlineArgs();
+    let parsedArgs = (0, exports.getCommandlineArgs)();
     let result = parsedArgs[key];
     if (valueIfNullOrEmpty != null) {
         if (result == null || result.length === 0) {

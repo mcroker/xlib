@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.atomicCache = void 0;
 const tslib_1 = require("tslib");
-const atomicCache = tslib_1.__importStar(require("./atomic-cache"));
+const atomicCache = (0, tslib_1.__importStar)(require("./atomic-cache"));
 exports.atomicCache = atomicCache;
 /** @deprecated but made available for backcompat */
 exports.ClassBase = require("./classbase");

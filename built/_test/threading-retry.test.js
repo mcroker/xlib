@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const mocha_helper_1 = require("./mocha-helper");
-const xlib = tslib_1.__importStar(require("../_index"));
+const xlib = (0, tslib_1.__importStar)(require("../_index"));
 var __ = xlib.lolo;
 var log = xlib.diagnostics.log;
 describe("threading.retry tests", function threading_retry_tests() {
@@ -15,21 +15,21 @@ describe("threading.retry tests", function threading_retry_tests() {
         }
         throw new Error(`currentTry ${currentTry} waiting on ${tryToWorkOn}`);
     }
-    mocha_helper_1.it2(async function e2e_basic() {
+    (0, mocha_helper_1.it2)(async function e2e_basic() {
         // tslint:disable-next-line: no-inferred-empty-object-type
         const retryObj = new xlib.threading.Retry({}, testWorker);
         currentTry = 0;
         let normalOpResult = await retryObj.invoke(1);
         log.throwCheck(normalOpResult.status === "done" && normalOpResult.try === 1);
     });
-    mocha_helper_1.it2(async function retries_basic() {
+    (0, mocha_helper_1.it2)(async function retries_basic() {
         // tslint:disable-next-line: no-inferred-empty-object-type
         const retryObj = new xlib.threading.Retry({}, testWorker);
         currentTry = 0;
         let normalOpResult = await retryObj.invoke(10);
         log.throwCheck(normalOpResult.status === "done" && normalOpResult.try === 10);
     }).timeout(20000);
-    mocha_helper_1.it2(async function maxRetries_basic() {
+    (0, mocha_helper_1.it2)(async function maxRetries_basic() {
         // tslint:disable-next-line: no-inferred-empty-object-type
         const retryObj = new xlib.threading.Retry({ maxRetries: 3 }, testWorker);
         currentTry = 0;
@@ -41,7 +41,7 @@ describe("threading.retry tests", function threading_retry_tests() {
         catch (_a) { }
         log.throwCheck(didSuccess === false);
     });
-    mocha_helper_1.it2(async function totalTimeout_basic() {
+    (0, mocha_helper_1.it2)(async function totalTimeout_basic() {
         // tslint:disable-next-line: no-inferred-empty-object-type
         const retryObj = new xlib.threading.Retry({ totalTimeout: 300 }, testWorker);
         currentTry = 0;

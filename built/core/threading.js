@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Autoscaler = exports.Retry = exports.RetryTimeoutException = exports.RetryException = exports.AsyncReaderWriterLock = void 0;
 const tslib_1 = require("tslib");
-const _ = tslib_1.__importStar(require("lodash"));
-const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 //declare var Promise: bb<any>;
 //import * as Promise from "bluebird";
 // /// <reference path="../typings/all.d.ts" />
@@ -92,8 +93,8 @@ const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 // export var ReadWriteLock: {
 //     new(): ReadWriteLock;
 // } = require( "rwlock" );
-const promise = tslib_1.__importStar(require("./promise"));
-const diagnostics = tslib_1.__importStar(require("./diagnostics"));
+const promise = (0, tslib_1.__importStar)(require("./promise"));
+const diagnostics = (0, tslib_1.__importStar)(require("./diagnostics"));
 const log = diagnostics.log; // const log = new diagnostics.Logger( __filename );
 /** an async+promise capable, readerwriter lock.
  *
@@ -244,8 +245,8 @@ class AsyncReaderWriterLock {
     }
 }
 exports.AsyncReaderWriterLock = AsyncReaderWriterLock;
-const luxon = tslib_1.__importStar(require("luxon"));
-const exception = tslib_1.__importStar(require("./_diagnostics/exception"));
+const luxon = (0, tslib_1.__importStar)(require("luxon"));
+const exception = (0, tslib_1.__importStar)(require("./_diagnostics/exception"));
 class RetryException extends exception.Exception {
     constructor(statePtr, message, options) {
         super(message, options);
@@ -256,7 +257,7 @@ exports.RetryException = RetryException;
 class RetryTimeoutException extends RetryException {
 }
 exports.RetryTimeoutException = RetryTimeoutException;
-const numHelper = tslib_1.__importStar(require("./_util/numhelper"));
+const numHelper = (0, tslib_1.__importStar)(require("./_util/numhelper"));
 /** helper class that wraps a ```workerFunc``` and if that fails when you invoke it, will retry as needed.
  *
  * By default, will retry at a semi-random time between ```options.baseWait``` and ```options.maxWait```, increasingly biased towards ```maxWait``` the more retry attempts fail.   You can configure your own custom retry logic by overriding the ```options.delayHandler```  */

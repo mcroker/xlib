@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AtomicCache = exports.AtomicCacheItem = void 0;
 const tslib_1 = require("tslib");
 //import * as moment from "moment";
-const luxon = tslib_1.__importStar(require("luxon"));
-const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
+const luxon = (0, tslib_1.__importStar)(require("luxon"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 /**
  * abstract class used for elements stored in the AtomicCache object
  */

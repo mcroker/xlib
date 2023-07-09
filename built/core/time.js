@@ -2,8 +2,9 @@
 ///// <reference path="../../typings/all.d.ts" />
 // "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PerfTimer = exports.quantile = exports.Stopwatch = void 0;
 const tslib_1 = require("tslib");
-const promise = tslib_1.__importStar(require("./promise"));
+const promise = (0, tslib_1.__importStar)(require("./promise"));
 //import * as _luxon from "luxon";
 /** Luxon is a library for working with dates and times in Javascript.
 ```
@@ -19,9 +20,9 @@ see https://www.npmjs.com/package/luxon  */
 exports.luxon = require("luxon");
 /** allow creating ms durations from simple strings */
 exports.ms = require("ms");
-const mathjs = tslib_1.__importStar(require("mathjs"));
-const _ = tslib_1.__importStar(require("lodash"));
-const diagnostics = tslib_1.__importStar(require("./diagnostics"));
+const mathjs = (0, tslib_1.__importStar)(require("mathjs"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
+const diagnostics = (0, tslib_1.__importStar)(require("./diagnostics"));
 class Stopwatch {
     constructor(name) {
         this.name = name;
@@ -173,7 +174,7 @@ _quantile = [0, 0.25, 0.5, 0.75, 1]) {
     }
 }
 exports.quantile = quantile;
-const environment = tslib_1.__importStar(require("./environment"));
+const environment = (0, tslib_1.__importStar)(require("./environment"));
 class PerfTimer {
     constructor(options) {
         this.options = options;

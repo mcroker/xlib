@@ -1,14 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.RemoteHttpEndpoint = exports.axios = void 0;
 const tslib_1 = require("tslib");
-const diagnostics = tslib_1.__importStar(require("./diagnostics"));
+const diagnostics = (0, tslib_1.__importStar)(require("./diagnostics"));
 const log = diagnostics.log; // new diagnostics.Logger( __filename );
 //import compression = require("./compression");
 //export import axios = require("axios");
-const axios = tslib_1.__importStar(require("axios"));
+const axios = (0, tslib_1.__importStar)(require("axios"));
 exports.axios = axios;
 const remote_http_endpoint_1 = require("./_net/remote-http-endpoint");
-exports.RemoteHttpEndpoint = remote_http_endpoint_1.RemoteHttpEndpoint;
+Object.defineProperty(exports, "RemoteHttpEndpoint", { enumerable: true, get: function () { return remote_http_endpoint_1.RemoteHttpEndpoint; } });
 //module _test {
 //	describe(__filename, () => {
 //		describe("EzEndpoint", () => {

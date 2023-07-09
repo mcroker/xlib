@@ -36,8 +36,8 @@ export declare class Stopwatch {
         isPaused: boolean;
     };
     /** if the stopwatch is running but paused.  (calling [[stop]] makes a stopwatch to be considered unpaused) */
-    readonly isPaused: boolean;
-    readonly isStarted: boolean;
+    get isPaused(): boolean;
+    get isStarted(): boolean;
     /** pause the stopwatch.  if already paused, or stopped, does nothing. */
     pause(): this;
     /** unpause the stopwatch.  if not paused (including if already stopped), does nothing */
@@ -110,7 +110,7 @@ export declare class PerfTimer {
                 runs: number;
                 total: string;
                 mean: string;
-                iqr: number[];
+                iqr: Array<number>;
             };
         };
         rawData: {

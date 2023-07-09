@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const mocha_helper_1 = require("./mocha-helper");
-const xlib = tslib_1.__importStar(require("../_index"));
+const xlib = (0, tslib_1.__importStar)(require("../_index"));
 var _ = xlib.lodash;
 var __ = xlib.lolo;
 var log = xlib.diagnostics.log;
@@ -24,7 +24,7 @@ describe(__filename + " basic xlib unit tests", () => {
     // 	// tslint:disable-next-line: no-inferrable-types
     // 	const testStr: string = "meow";  //tslint complain
     // } );
-    mocha_helper_1.it1(async function parseFunctions() {
+    (0, mocha_helper_1.it1)(async function parseFunctions() {
         // try {
         // 	await this.goto( "https://opjav.club/v/npjx-a2y5lkyl-4" );
         // 	this.on( "request", ( details ) => {
@@ -46,7 +46,7 @@ describe(__filename + " basic xlib unit tests", () => {
         // log.infoFull( fcnStr );
         // log.infoFull( resultFcn );
     });
-    mocha_helper_1.it1(function parameterReassignment() {
+    (0, mocha_helper_1.it1)(function parameterReassignment() {
         //sanity check to verify assumptions regarding parameter property reassignment  (setting "public" on ctor parameters)
         class TestParameterReassignment {
             constructor(options) {
@@ -62,7 +62,7 @@ describe(__filename + " basic xlib unit tests", () => {
         let testObj = new TestParameterReassignment({ arg1: "callerSet", arg2: "callerSet" });
     });
     describe("log_module", function log_module() {
-        mocha_helper_1.it1(function testThrowIfFunctionality() {
+        (0, mocha_helper_1.it1)(function testThrowIfFunctionality() {
             let gotTooFar = false;
             try {
                 log.throwCheck(false, "should throw an error that will be caught by the test");
@@ -86,7 +86,7 @@ describe(__filename + " basic xlib unit tests", () => {
                 throw new Error("got too far.  log.throwIf() is not working properly.");
             }
         });
-        mocha_helper_1.it2(async function loggerBasicConsoleOutput() {
+        (0, mocha_helper_1.it2)(async function loggerBasicConsoleOutput() {
             const testLogger = xlib.diagnostics.log; //  new diagnostics.Logger( "test logging" );
             testLogger.trace("traced");
             testLogger.info("infoed");
@@ -94,18 +94,18 @@ describe(__filename + " basic xlib unit tests", () => {
             testLogger.error("errored");
             //testLogger.assert( false, "asserted" );
         });
-        mocha_helper_1.it1(function testReadXlibEnvironmentEnvLevel() {
+        (0, mocha_helper_1.it1)(function testReadXlibEnvironmentEnvLevel() {
             xlib.diagnostics.log.throwCheck(xlib.environment.envLevel != null);
             //log.info( { envLevel: xlib.environment.envLevel } );
         });
-        mocha_helper_1.it1(function testLogAutoTruncation() {
+        (0, mocha_helper_1.it1)(function testLogAutoTruncation() {
             log.info("hi", { some: "data" });
             let resultArgs = log.info("this 1000 character string gets auto-truncated nicely via __.inspect()", { longKey: xlib.security.humanFriendlyKey(1000, 10) });
             log.throwCheck(resultArgs[4].length < 350);
             resultArgs = log.warnFull("this 1000 character screen doesn't get truncated because it's logged via the Full method ", { longKey: xlib.security.humanFriendlyKey(1000, 10) });
             log.throwCheck(resultArgs[4].length > 350);
         });
-        mocha_helper_1.it1(function logOverridesTest() {
+        (0, mocha_helper_1.it1)(function logOverridesTest() {
             try {
                 let result = log.info("should show");
                 log.throwCheck(result != null);
@@ -127,7 +127,7 @@ describe(__filename + " basic xlib unit tests", () => {
             }
         });
     });
-    mocha_helper_1.it2(async function testingBasicNetRemoteHttpEndpointFunctionalityReadFromExampleCom() {
+    (0, mocha_helper_1.it2)(async function testingBasicNetRemoteHttpEndpointFunctionalityReadFromExampleCom() {
         const remoteEndpoint = new xlib.net.RemoteHttpEndpoint({
             endpoint: { origin: "http://example.com" },
             retryOptions: { backoff: 2, interval: 100, max_interval: 5000, max_tries: 10 },
@@ -138,7 +138,7 @@ describe(__filename + " basic xlib unit tests", () => {
         log.throwCheck(response.data.indexOf("Example Domain") >= 0, "Example Domain text not found");
         //log.info( response );
     });
-    mocha_helper_1.it1(function testingReflection() {
+    (0, mocha_helper_1.it1)(function testingReflection() {
         const reflection = xlib.reflection;
         const Type = reflection.Type;
         class MyClass {
@@ -154,7 +154,7 @@ describe(__filename + " basic xlib unit tests", () => {
         log.throwCheck(reflection.getType(reflection.getType) === Type.function);
         log.throwCheck(reflection.getType(xlib) === Type.object);
     });
-    mocha_helper_1.it2(async function testingAutoscalerFunctionalityRequestFromPhantomjscloudCom() {
+    (0, mocha_helper_1.it2)(async function testingAutoscalerFunctionalityRequestFromPhantomjscloudCom() {
         const apiKey = xlib.environment.getEnvironmentVariable("phantomjscloud_apikey", "a-demo-key-with-low-quota-per-ip-address");
         const options = {
             endpoint: { origin: "https://phantomjscloud.com", path: `/api/browser/v2/${apiKey}/` },
@@ -184,21 +184,21 @@ describe(__filename + " basic xlib unit tests", () => {
             keyPair_P256 = await xlib.security.generateECKeyPair("P-256");
             keyPair_P256_2 = await xlib.security.generateECKeyPair();
         });
-        mocha_helper_1.it1(async function tinyToken_validNoExpire() {
+        (0, mocha_helper_1.it1)(async function tinyToken_validNoExpire() {
             const token = await xlib.security.tinyToken.sign(tokenTestData, keyPair_P256_2.pri);
             const result = await xlib.security.tinyToken.verify(token, keyPair_P256_2.pub);
             log.throwCheck(result.isValid === true && result.isExpired === false && result.isSigValid === true, "verify result status checks abnormal");
             log.throwCheck(JSON.stringify(tokenTestData) === JSON.stringify(result.data), "resulting token data does not match input", tokenTestData, result.data);
             //log.infoFull( "tinyToken_basicE2e done success", { dataLen: JSON.stringify( data ).length, tokenLen: token.length, token, result } );
         });
-        mocha_helper_1.it1(async function tinyToken_validExpire5s() {
+        (0, mocha_helper_1.it1)(async function tinyToken_validExpire5s() {
             const now = __.utc().minus({ second: 5 });
             const token = await xlib.security.tinyToken.sign(tokenTestData, keyPair_P256_2.pri, { expires: "10s", currentDate: now.toJSDate() });
             const result = await xlib.security.tinyToken.verify(token, keyPair_P256_2.pub);
             log.throwCheck(result.isValid === true && result.isExpired === false && result.isSigValid === true, "verify result status checks abnormal");
             log.throwCheck(JSON.stringify(tokenTestData) === JSON.stringify(result.data), "resulting token data does not match input", tokenTestData, result.data);
         });
-        mocha_helper_1.it1(async function tinyToken_validExpire5s_P256_Under255Char() {
+        (0, mocha_helper_1.it1)(async function tinyToken_validExpire5s_P256_Under255Char() {
             const maximumData = { billing: "bypass", credits: 1.0, use: "direct", lots: { values: ["abc", "do re me", 123], now: new Date() } };
             const now = __.utc().minus({ second: 5 });
             const token = await xlib.security.tinyToken.sign(maximumData, keyPair_P256.pri, { expires: "10s", currentDate: now.toJSDate() });
@@ -209,7 +209,7 @@ describe(__filename + " basic xlib unit tests", () => {
             log.throwCheck(result.isValid === true && result.isExpired === false && result.isSigValid === true, "verify result status checks abnormal");
             log.throwCheck(JSON.stringify(maximumData) === JSON.stringify(result.data), "resulting token data does not match input", tokenTestData, result.data);
         });
-        mocha_helper_1.it1(async function tinyToken_Expired1s() {
+        (0, mocha_helper_1.it1)(async function tinyToken_Expired1s() {
             const now = __.utc().minus({ second: 11 });
             const token = await xlib.security.tinyToken.sign(tokenTestData, keyPair_P256_2.pri, { expires: "10s", currentDate: now.toJSDate() });
             let isError = false;
@@ -222,7 +222,7 @@ describe(__filename + " basic xlib unit tests", () => {
             log.throwCheck(isError === true, "token did not fail as test expected");
             //log.throwCheck( JSON.stringify( tokenTestData ) === JSON.stringify( result.data ), "resulting token data does not match input" );
         });
-        mocha_helper_1.it1(async function tinyToken_Expired1s_resultsAnyway() {
+        (0, mocha_helper_1.it1)(async function tinyToken_Expired1s_resultsAnyway() {
             const smallTestData = { now: new Date() };
             const now = __.utc().minus({ second: 11 });
             const token = await xlib.security.tinyToken.sign(smallTestData, keyPair_P256_2.pri, { expires: "10s", currentDate: now.toJSDate() });
@@ -231,7 +231,7 @@ describe(__filename + " basic xlib unit tests", () => {
             log.throwCheck(result.isValid === false && result.isExpired === true && result.isSigValid === true, "verify result status checks abnormal");
             log.throwCheck(JSON.stringify(smallTestData) === JSON.stringify(result.data), "resulting token data does not match input", smallTestData, result.data);
         });
-        mocha_helper_1.it1(async function tinyToken_Expired7d1s() {
+        (0, mocha_helper_1.it1)(async function tinyToken_Expired7d1s() {
             const now = __.utc().minus({ day: 7, second: 1 });
             const token = await xlib.security.tinyToken.sign(tokenTestData, keyPair_P256_2.pri, { expires: "7d", currentDate: now.toJSDate() }); // currentDate: new Date( Date.now() - ( ( 7 * 24 * 3600 ) - ( 1 * 60 ) ) * 1000 ) } ) );
             let isError = false;
@@ -244,20 +244,20 @@ describe(__filename + " basic xlib unit tests", () => {
             log.throwCheck(isError === true, "token did not fail as test expected");
             //log.throwCheck( JSON.stringify( tokenTestData ) === JSON.stringify( result.data ), "resulting token data does not match input" );
         });
-        mocha_helper_1.it1(async function tinyToken_invalid_wrongSig() {
+        (0, mocha_helper_1.it1)(async function tinyToken_invalid_wrongSig() {
             const now = __.utc(); //.minus( { day: 7, second: 1 } );
             const token = await xlib.security.tinyToken.sign(tokenTestData, keyPair_P256_2.pri, { expires: "7d", currentDate: now.toJSDate() }); // currentDate: new Date( Date.now() - ( ( 7 * 24 * 3600 ) - ( 1 * 60 ) ) * 1000 ) } ) );
             const result = await xlib.security.tinyToken.verify(token, keyPair_P256.pub, { allowValidationFailure: true });
             log.throwCheck(result.isValid === false && result.isExpired === false && result.isSigValid === false, "verify result status checks abnormal");
         });
-        mocha_helper_1.it1(async function tinyToken_validExpire1sFrom7dAgo() {
+        (0, mocha_helper_1.it1)(async function tinyToken_validExpire1sFrom7dAgo() {
             const now = __.utc().minus({ day: 7 }).plus({ second: 1 });
             const token = await xlib.security.tinyToken.sign(tokenTestData, keyPair_P256_2.pri, { expires: "7d", currentDate: now.toJSDate() });
             const result = await xlib.security.tinyToken.verify(token, keyPair_P256_2.pub);
             log.throwCheck(result.isValid === true && result.isExpired === false && result.isSigValid === true, "verify result status checks abnormal");
             log.throwCheck(JSON.stringify(tokenTestData) === JSON.stringify(result.data), "resulting token data does not match input", tokenTestData, result.data);
         });
-        mocha_helper_1.it1(async function jwt_ec_keyPair_basicE2e() {
+        (0, mocha_helper_1.it1)(async function jwt_ec_keyPair_basicE2e() {
             const token = await new __.bb((resolve, reject) => {
                 xlib.security.jwt.sign(tokenTestData, keyPair_P256.pri, { algorithm: "ES256", expiresIn: "5m" }, (_err, encoded) => {
                     if (_err != null) {
@@ -283,7 +283,7 @@ describe(__filename + " basic xlib unit tests", () => {
             });
             //log.infoFull( "jwt_ec_keyPair_basicE2e done success", { dataLen: JSON.stringify( data ).length, tokenLen: token.length, token, result } );
         });
-        mocha_helper_1.it2(async function jwt_keyPair_basicE2e() {
+        (0, mocha_helper_1.it2)(async function jwt_keyPair_basicE2e() {
             return new __.bb((resolve, reject) => {
                 //generate RSA key pair
                 //from: https://stackoverflow.com/a/52775583/1115220
@@ -297,7 +297,7 @@ describe(__filename + " basic xlib unit tests", () => {
                         type: 'pkcs8',
                         format: 'pem',
                         cipher: undefined,
-                        passphrase: undefined,
+                        passphrase: undefined, //"secret word"
                     }
                 }, (err, publicKey, privateKey) => {
                     // Handle errors and use the generated key pair.
@@ -323,7 +323,7 @@ describe(__filename + " basic xlib unit tests", () => {
             });
         }).timeout(10000);
     });
-    mocha_helper_1.it1(function testExceptions() {
+    (0, mocha_helper_1.it1)(function testExceptions() {
         class MyException extends xlib.diagnostics.Exception {
             constructor() {
                 super(...arguments);
@@ -358,7 +358,7 @@ describe(__filename + " basic xlib unit tests", () => {
             log.info("testExceptions", asJson1);
         }
     });
-    mocha_helper_1.it1(function testUrlValidation() {
+    (0, mocha_helper_1.it1)(function testUrlValidation() {
         let urlVal = new xlib.validation.UrlValidator("http://www.example.com:881");
         log.throwCheck(urlVal.isValid === true, "basic url should be valid", urlVal);
         urlVal = new xlib.validation.UrlValidator("data:text/html,<script>alert('hi');</script>");
@@ -368,10 +368,10 @@ describe(__filename + " basic xlib unit tests", () => {
         urlVal = new xlib.validation.UrlValidator("http://localhost:881", { allowLocalhost: true });
         log.throwCheck(urlVal.isValid === true, "local url should be valid", urlVal);
     });
-    mocha_helper_1.it1(function testLolo() {
+    (0, mocha_helper_1.it1)(function testLolo() {
         __.log.info(`the current time is ${__.utc().toISO()}`, { isDebug: __.isDebug() });
     });
-    mocha_helper_1.it2(async function testStopwatch() {
+    (0, mocha_helper_1.it2)(async function testStopwatch() {
         const stopwatch = new xlib.time.Stopwatch("unit test");
         __.log.throwCheck(stopwatch.getElapsed().valueOf() === 0);
         await xlib.promise.bluebird.delay(200);
@@ -420,14 +420,14 @@ describe(__filename + " basic xlib unit tests", () => {
             }
             toString() { return "TestSymbol"; }
         }
-        mocha_helper_1.it1(function symbolInspection() {
+        (0, mocha_helper_1.it1)(function symbolInspection() {
             let testObj = { cache: 22.2, cash: 88.8, [Symbol("KEY")]: { name: "Jason", id: 123 }, dumbNotKey: Symbol("seekreet") };
             let parsedToInspect = xlib.serialization.jsonX.inspectStringify(testObj, { maxDepth: 999 });
             log.throwCheck(parsedToInspect.includes("Symbol(seekreet)") && parsedToInspect.includes("Symbol(KEY)") && parsedToInspect.includes("Jason"), "Symbol details are missing from jxons.inspectStringify() result", { parsed: parsedToInspect });
         });
     });
     describe("collection_module", function collection_module() {
-        mocha_helper_1.it2(async function ExpiresMap_basic() {
+        (0, mocha_helper_1.it2)(async function ExpiresMap_basic() {
             let inputMap = new Map();
             inputMap.set("null-expires-ok", "hello");
             inputMap.set("null-expires-ok", null);
@@ -452,7 +452,7 @@ describe(__filename + " basic xlib unit tests", () => {
             log.throwCheck(expireMap.has("persist-past-expire-check") === true, "key 1 should not have expired");
         });
     });
-    mocha_helper_1.it2(async function testPerfTimer() {
+    (0, mocha_helper_1.it2)(async function testPerfTimer() {
         /** needs to stay 5 otherwise the assert check at the bottom of the test needs to be changed */
         const loops = 5;
         const loopSleepMs = 3;
@@ -486,7 +486,7 @@ describe(__filename + " basic xlib unit tests", () => {
         __.log.throwCheck(logData["outside"].runs === 1 && logData["mainLoop"].runs === 5 && logData["innerAA"].runs === 125 && logData["innerA"].runs === 25 && logData["innerB"].runs === 25);
         __.log.throwCheck(rawData["mainLoop"].raw.length === 5);
     }).timeout(5000); //runs long
-    mocha_helper_1.it1(function testQuartileCalculations() {
+    (0, mocha_helper_1.it1)(function testQuartileCalculations() {
         const input = [500, 468, 454, 469];
         const quantiles = [0, 0.25, 0.5, 0.75, 1];
         const outputMathJs = xlib.numeric.mathjs.quantileSeq(input, quantiles, false);
@@ -500,7 +500,7 @@ describe(__filename + " basic xlib unit tests", () => {
         // 	__.log.throwIf( rejection.reason instanceof Error );
         // 	__.log.throwIf( ( rejection.reason() as Error ).message === "error string" );
     });
-    mocha_helper_1.it2(async function autoscalerTest() {
+    (0, mocha_helper_1.it2)(async function autoscalerTest() {
         const chanceOfBusy = 0.01;
         const chanceOfFail = 0.01;
         const replyDelay = 30;

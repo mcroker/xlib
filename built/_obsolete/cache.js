@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.defaultCache = exports.Cache = void 0;
 const tslib_1 = require("tslib");
-const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
-const lodash_1 = tslib_1.__importDefault(require("lodash"));
-const luxon_1 = tslib_1.__importDefault(require("luxon"));
-const diagnostics = tslib_1.__importStar(require("../core/diagnostics"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const lodash_1 = (0, tslib_1.__importDefault)(require("lodash"));
+const luxon_1 = (0, tslib_1.__importDefault)(require("luxon"));
+const diagnostics = (0, tslib_1.__importStar)(require("../core/diagnostics"));
 const log = diagnostics.log; // new diagnostics.Logger( __filename );
 /**
  * caches values in memory, mostly to help avoiding excessive db queries, but can be used for any similar reasons.

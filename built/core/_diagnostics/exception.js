@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.errorToJson = exports.errorToString = exports.toError = exports.HttpStatusCodeException = exports.XlibException = exports.Exception = void 0;
 const tslib_1 = require("tslib");
-const environment = tslib_1.__importStar(require("../environment"));
-const _ = tslib_1.__importStar(require("lodash"));
-const stringHelper = tslib_1.__importStar(require("../_util/stringhelper"));
+const environment = (0, tslib_1.__importStar)(require("../environment"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
+const stringHelper = (0, tslib_1.__importStar)(require("../_util/stringhelper"));
 /** class to allow extending of javascript errors (custom errors thrown by exceptions)
 usage example:  class MyException extends Exception{ } throw new MyException("boo");
 from https://stackoverflow.com/questions/12915412/how-do-i-extend-a-host-object-e-g-error-in-typescript
@@ -90,9 +91,9 @@ class Exception extends Error {
         return errorToJson(this);
     }
 }
+exports.Exception = Exception;
 //public options: IExceptionOptions;
 Exception._getTypeNameOrFuncNameRegex = /function (.{1,})\(/;
-exports.Exception = Exception;
 /** all errors thrown by xlib extend this error type */
 class XlibException extends Exception {
 }

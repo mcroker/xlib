@@ -20,7 +20,7 @@ export declare abstract class AtomicCacheItem<TValue, TModifyParams> {
     private _lastUsedTime;
     private _syncPending;
     /** read only:  the last time this was used */
-    readonly lastUsedTime: luxon.DateTime;
+    get lastUsedTime(): luxon.DateTime;
     /** private helper to know when we have read the state from datastore */
     private _isInitialized;
     /** private helper to know when this should not be used again */

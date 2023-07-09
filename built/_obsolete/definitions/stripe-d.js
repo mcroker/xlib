@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateUserDebugInfo = void 0;
 /**
  *  helper function that will generate a user friendly debug POJO based on the error returned by stripe.
  * @param error

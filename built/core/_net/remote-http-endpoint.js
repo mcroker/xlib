@@ -1,17 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.RemoteHttpEndpoint = void 0;
 const tslib_1 = require("tslib");
 //import Bluebird from "bluebird";
-const promise = tslib_1.__importStar(require("../promise"));
+const promise = (0, tslib_1.__importStar)(require("../promise"));
 const bb = require("bluebird");
-const _ = tslib_1.__importStar(require("lodash"));
-const diagnostics = tslib_1.__importStar(require("../diagnostics"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
+const diagnostics = (0, tslib_1.__importStar)(require("../diagnostics"));
 const log = diagnostics.log; // new diagnostics.Logger( __filename );
 log.overrideLogLevel("WARN");
 const threading_1 = require("../threading");
 //import compression = require("./compression");
 //export import axios = require("axios");
-const axios = tslib_1.__importStar(require("axios"));
+const axios = (0, tslib_1.__importStar)(require("axios"));
 /**
 *  define a remote http endpoint for reuse in your application
 * includes retry logic and exponential backoff.

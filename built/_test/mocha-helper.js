@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.it2 = exports.it1 = void 0;
 const tslib_1 = require("tslib");
 global.__xlibInitArgs = {
     logLevel: "DEBUG"
 };
-const xlib = tslib_1.__importStar(require("../_index"));
+const xlib = (0, tslib_1.__importStar)(require("../_index"));
 function it1(testFcn) {
     const testName = xlib.reflection.getTypeName(testFcn);
     return it(testName, testFcn);

@@ -42,7 +42,7 @@ export declare class Exception extends Error {
     constructor(message: string, options?: IExceptionOptions);
     /** includes stack track in string*/
     toString(): string;
-    toJson<T extends Error = this>(): types.PropsUnion<IErrorJson, Pick<T, { [K in keyof T]: T[K] extends Function ? never : K; }[keyof T]>>;
+    toJson<T extends Error = this>(): ErrorAsJson<T>;
 }
 /** all errors thrown by xlib extend this error type */
 export declare class XlibException extends Exception {

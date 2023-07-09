@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.hash = exports.base64 = exports.base64Url = exports.escapeRegExp = exports.tryRemoveBom = exports.isNullOrEmpty = exports.endsWith = exports.removeBefore = exports.removeAfter = exports.removeSuffix = exports.removePrefix = exports.remove = exports.insertAt = exports.replaceAll = exports.repeat = exports.capitalize = exports.intToIpV4 = exports.ipV4toInt = exports.toId = exports.summarize = exports.between = exports.indexOf = exports.count = exports.isEncodedMaybe = exports.isUnicodeDoubleByte = exports.unescapeUserInput = exports.escapeUserInput = exports.htmlUnescapeEscapedUserInput = exports.htmlEscapeEscapedUserInput = void 0;
 const tslib_1 = require("tslib");
 // tslint:disable: no-bitwise
-const _ = tslib_1.__importStar(require("lodash"));
+const _ = (0, tslib_1.__importStar)(require("lodash"));
 /** color strings for console use.  also used by logger */
 exports.Chalk = require("chalk");
 /** remove ansi characters from string.  also used by logger. */

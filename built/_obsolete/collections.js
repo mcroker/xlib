@@ -1,15 +1,16 @@
 "use strict";
 // tslint:disable: no-bitwise no-dynamic-delete
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ezForEachAndRemove = exports.ExpiresDictionary = exports.BitFlags = void 0;
 const tslib_1 = require("tslib");
 //import arrayHelper = require("./arrayhelper");
-const numHelper = tslib_1.__importStar(require("../core/_util/numhelper"));
-const diagnostics = tslib_1.__importStar(require("../core/diagnostics"));
+const numHelper = (0, tslib_1.__importStar)(require("../core/_util/numhelper"));
+const diagnostics = (0, tslib_1.__importStar)(require("../core/diagnostics"));
 //import runtime = require("./runtime");
 //import diagnostics = require("./diagnostics");
-const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 //import * as moment from "moment";
-const luxon = tslib_1.__importStar(require("luxon"));
+const luxon = (0, tslib_1.__importStar)(require("luxon"));
 /** up to 32 true/false values stored in 32bits (a bitmask) */
 class BitFlags {
     constructor(bitFlagsOrRawBuffer) {
@@ -208,6 +209,7 @@ class BitFlags {
         return this.rawBuffer;
     }
 }
+exports.BitFlags = BitFlags;
 /** how many bytes can be stored by instances of this */
 BitFlags.MAXFLAGS = 32;
 //public static SIZEOF = 32;
@@ -215,7 +217,6 @@ BitFlags.MAXFLAGS = 32;
 BitFlags.ALL = new BitFlags(numHelper.INT32_MAX);
 /** all flags set to false (ctor of 0) */
 BitFlags.NONE = new BitFlags(0);
-exports.BitFlags = BitFlags;
 /**
  *  a dictionary that deletes items when they expire
  */

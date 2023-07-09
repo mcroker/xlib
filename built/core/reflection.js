@@ -3,8 +3,9 @@
 //import stringHelper = require("../stringhelper");
 //import arrayHelper = require("../arrayhelper");
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.mapArgumentsValues = exports.getArgumentNames = exports.getTypeName = exports.getPropertyNames = exports.getType = exports.Type = void 0;
 const tslib_1 = require("tslib");
-const ex = tslib_1.__importStar(require("./_diagnostics/exception"));
+const ex = (0, tslib_1.__importStar)(require("./_diagnostics/exception"));
 /** primitive types as identified by javascript, plus well known object types */
 var Type;
 (function (Type) {
